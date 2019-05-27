@@ -1,0 +1,10 @@
+disabled_rules: # rule identifiers to exclude from running
+  - line_length
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - GHCollection/R.generated.swift
+
+cyclomatic_complexity:
+  warning: 10
+  error: 1200
