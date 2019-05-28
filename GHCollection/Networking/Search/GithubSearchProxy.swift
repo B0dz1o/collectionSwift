@@ -13,8 +13,8 @@ import PromiseKit
 final class GithubSearchProxy: GithubSearchProviding {
 
     func getResults(query: String, page: UInt, perPage: UInt) -> Promise<RepoSearchResultRepresenting> {
-        let (promise, resolver) = Promise<RepoSearchResultRepresenting>.pending()
-        return promise
+        let factory = GithubAPIFactory()
+        return factory.makeSearchRepo(query: query, page: page, perPage: perPage)
     }
 
     func getResultsThrottled(query: String, page: UInt, perPage: UInt) -> Promise<RepoSearchResultRepresenting> {
