@@ -14,6 +14,7 @@ class CodingTest: XCTestCase {
     var ownerMock: RepoOwner!
     var repoMock: Repository!
     var searchResMock: RepoSearchResult!
+    let encoder = JSONEncoder()
 
     override func setUp() {
         super.setUp()
@@ -24,7 +25,6 @@ class CodingTest: XCTestCase {
     }
 
     func testOwner() {
-        let encoder = JSONEncoder()
         XCTAssertNoThrow(try encoder.encode(ownerMock))
         do {
             let data = try encoder.encode(ownerMock)
@@ -36,7 +36,6 @@ class CodingTest: XCTestCase {
     }
 
     func testRepo() {
-        let encoder = JSONEncoder()
         XCTAssertNoThrow(try encoder.encode(repoMock))
         do {
             let data = try encoder.encode(repoMock)
@@ -47,7 +46,6 @@ class CodingTest: XCTestCase {
     }
 
     func testResult() {
-        let encoder = JSONEncoder()
         XCTAssertNoThrow(try encoder.encode(searchResMock))
         do {
             let data = try encoder.encode(searchResMock)
