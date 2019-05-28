@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,10 +23,15 @@
 		28A6E0AA229D72C10033938B /* RepoSearchResultRepresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E0A9229D72C10033938B /* RepoSearchResultRepresenting.swift */; };
 		28A6E0AC229D73670033938B /* RepoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E0AB229D73670033938B /* RepoSearchResult.swift */; };
 		28A6E0AE229D78EB0033938B /* CodingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E0AD229D78EB0033938B /* CodingTest.swift */; };
+		28A6E0B1229D831D0033938B /* GithubSearchProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E0B0229D831D0033938B /* GithubSearchProviding.swift */; };
+		28A6E0B3229D83420033938B /* GithubSearchProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E0B2229D83420033938B /* GithubSearchProxy.swift */; };
 		28A6E0B7229D8BF30033938B /* DecodingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A6E0B6229D8BF30033938B /* DecodingTest.swift */; };
 		28A6E0BA229D8E140033938B /* WholeResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 28A6E0B9229D8E140033938B /* WholeResponse.json */; };
 		28A6E0BC229D8ED30033938B /* Repository.json in Resources */ = {isa = PBXBuildFile; fileRef = 28A6E0BB229D8ED30033938B /* Repository.json */; };
 		28A6E0BE229D8EFE0033938B /* Owner.json in Resources */ = {isa = PBXBuildFile; fileRef = 28A6E0BD229D8EFE0033938B /* Owner.json */; };
+		28EE528D229E6ADF005EE95C /* GithubAPIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE528C229E6ADF005EE95C /* GithubAPIFactory.swift */; };
+		28EE5290229E727D005EE95C /* ResultOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE528F229E727D005EE95C /* ResultOrder.swift */; };
+		28EE5292229E72B5005EE95C /* SearchSortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EE5291229E72B5005EE95C /* SearchSortBy.swift */; };
 		A76AD8D63B34FA52C416E758 /* Pods_GHCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0207E2BA58A22A5843516E9 /* Pods_GHCollection.framework */; };
 		F58A40FDC914162C39B0E934 /* Pods_GHCollectionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB71E4E5C08ED55DCA7667D /* Pods_GHCollectionTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,10 +75,15 @@
 		28A6E0A9229D72C10033938B /* RepoSearchResultRepresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchResultRepresenting.swift; sourceTree = "<group>"; };
 		28A6E0AB229D73670033938B /* RepoSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchResult.swift; sourceTree = "<group>"; };
 		28A6E0AD229D78EB0033938B /* CodingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTest.swift; sourceTree = "<group>"; };
+		28A6E0B0229D831D0033938B /* GithubSearchProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchProviding.swift; sourceTree = "<group>"; };
+		28A6E0B2229D83420033938B /* GithubSearchProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchProxy.swift; sourceTree = "<group>"; };
 		28A6E0B6229D8BF30033938B /* DecodingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTest.swift; sourceTree = "<group>"; };
 		28A6E0B9229D8E140033938B /* WholeResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WholeResponse.json; sourceTree = "<group>"; };
 		28A6E0BB229D8ED30033938B /* Repository.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repository.json; sourceTree = "<group>"; };
 		28A6E0BD229D8EFE0033938B /* Owner.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Owner.json; sourceTree = "<group>"; };
+		28EE528C229E6ADF005EE95C /* GithubAPIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIFactory.swift; sourceTree = "<group>"; };
+		28EE528F229E727D005EE95C /* ResultOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOrder.swift; sourceTree = "<group>"; };
+		28EE5291229E72B5005EE95C /* SearchSortBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSortBy.swift; sourceTree = "<group>"; };
 		75BC8069F9A6A0A9FD48EEDB /* Pods-GHCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHCollection.release.xcconfig"; path = "Target Support Files/Pods-GHCollection/Pods-GHCollection.release.xcconfig"; sourceTree = "<group>"; };
 		79F56CDBC97C84546DA82645 /* Pods-GHCollectionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHCollectionTests.debug.xcconfig"; path = "Target Support Files/Pods-GHCollectionTests/Pods-GHCollectionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C03E9E77339C9039541598E /* Pods_GHCollectionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHCollectionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,13 +148,11 @@
 		286B3FB0229D2A1600AC6514 /* GHCollection */ = {
 			isa = PBXGroup;
 			children = (
-				28A6E09E229D638B0033938B /* Resources */,
-				28A6E09D229D63820033938B /* Models */,
 				28A6E09C229D637B0033938B /* Controllers */,
+				28A6E09D229D63820033938B /* Models */,
+				28A6E09E229D638B0033938B /* Resources */,
+				28A6E0AF229D829C0033938B /* Networking */,
 				286B3FB1229D2A1600AC6514 /* AppDelegate.swift */,
-				286B3FBB229D2A1600AC6514 /* Assets.xcassets */,
-				286B3FC0229D2A1600AC6514 /* Info.plist */,
-				286B3FB8229D2A1600AC6514 /* GHCollection.xcdatamodeld */,
 			);
 			path = GHCollection;
 			sourceTree = "<group>";
@@ -190,6 +198,9 @@
 		28A6E09E229D638B0033938B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				286B3FBB229D2A1600AC6514 /* Assets.xcassets */,
+				286B3FC0229D2A1600AC6514 /* Info.plist */,
+				286B3FB8229D2A1600AC6514 /* GHCollection.xcdatamodeld */,
 				286B3FB5229D2A1600AC6514 /* Main.storyboard */,
 				286B3FBD229D2A1600AC6514 /* LaunchScreen.storyboard */,
 			);
@@ -216,6 +227,16 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		28A6E0AF229D829C0033938B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				28EE528E229E7265005EE95C /* Search */,
+				28EE528C229E6ADF005EE95C /* GithubAPIFactory.swift */,
+				28EE528F229E727D005EE95C /* ResultOrder.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		28A6E0B8229D8DED0033938B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +245,16 @@
 				28A6E0B9229D8E140033938B /* WholeResponse.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		28EE528E229E7265005EE95C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				28A6E0B0229D831D0033938B /* GithubSearchProviding.swift */,
+				28A6E0B2229D83420033938B /* GithubSearchProxy.swift */,
+				28EE5291229E72B5005EE95C /* SearchSortBy.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		702A6819BB94CAF6690E5577 /* Frameworks */ = {
@@ -261,6 +292,7 @@
 				286B3FAA229D2A1600AC6514 /* Sources */,
 				286B3FAB229D2A1600AC6514 /* Frameworks */,
 				286B3FAC229D2A1600AC6514 /* Resources */,
+				8A13C6BD60C7C3733ED08E7F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -467,6 +499,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A13C6BD60C7C3733ED08E7F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHCollection/Pods-GHCollection-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHCollection/Pods-GHCollection-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GHCollection/Pods-GHCollection-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -475,13 +524,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				286B3FBA229D2A1600AC6514 /* GHCollection.xcdatamodeld in Sources */,
+				28A6E0B1229D831D0033938B /* GithubSearchProviding.swift in Sources */,
+				28EE528D229E6ADF005EE95C /* GithubAPIFactory.swift in Sources */,
 				286B3FB4229D2A1600AC6514 /* ViewController.swift in Sources */,
 				28A6E0A8229D6D810033938B /* RepositoryRepresenting.swift in Sources */,
 				28A6E0A4229D6A460033938B /* RepoOwnerRepresenting.swift in Sources */,
+				28EE5292229E72B5005EE95C /* SearchSortBy.swift in Sources */,
 				28A6E0AA229D72C10033938B /* RepoSearchResultRepresenting.swift in Sources */,
 				286B3FB2229D2A1600AC6514 /* AppDelegate.swift in Sources */,
 				28A6E0A1229D63C50033938B /* RepoOwner.swift in Sources */,
+				28EE5290229E727D005EE95C /* ResultOrder.swift in Sources */,
 				28A6E0AC229D73670033938B /* RepoSearchResult.swift in Sources */,
+				28A6E0B3229D83420033938B /* GithubSearchProxy.swift in Sources */,
 				28A6E0A6229D6AA50033938B /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,7 +720,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = GHCollection/Info.plist;
+				INFOPLIST_FILE = GHCollection/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -686,7 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = GHCollection/Info.plist;
+				INFOPLIST_FILE = GHCollection/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
