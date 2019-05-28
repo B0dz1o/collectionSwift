@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		22E7019108366E04FA2415E8 /* Pods_GHCollectionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C03E9E77339C9039541598E /* Pods_GHCollectionUITests.framework */; };
 		286B3FB2229D2A1600AC6514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286B3FB1229D2A1600AC6514 /* AppDelegate.swift */; };
-		286B3FB4229D2A1600AC6514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286B3FB3229D2A1600AC6514 /* ViewController.swift */; };
+		286B3FB4229D2A1600AC6514 /* SearchReposController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286B3FB3229D2A1600AC6514 /* SearchReposController.swift */; };
 		286B3FB7229D2A1600AC6514 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286B3FB5229D2A1600AC6514 /* Main.storyboard */; };
 		286B3FBA229D2A1600AC6514 /* GHCollection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 286B3FB8229D2A1600AC6514 /* GHCollection.xcdatamodeld */; };
 		286B3FBC229D2A1600AC6514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286B3FBB229D2A1600AC6514 /* Assets.xcassets */; };
@@ -56,7 +56,7 @@
 /* Begin PBXFileReference section */
 		286B3FAE229D2A1600AC6514 /* GHCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286B3FB1229D2A1600AC6514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		286B3FB3229D2A1600AC6514 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		286B3FB3229D2A1600AC6514 /* SearchReposController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReposController.swift; sourceTree = "<group>"; };
 		286B3FB6229D2A1600AC6514 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		286B3FB9229D2A1600AC6514 /* GHCollection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GHCollection.xcdatamodel; sourceTree = "<group>"; };
 		286B3FBB229D2A1600AC6514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		28A6E09C229D637B0033938B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				286B3FB3229D2A1600AC6514 /* ViewController.swift */,
+				28EE5295229E8FC0005EE95C /* SearchRepos */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +255,14 @@
 				28EE5291229E72B5005EE95C /* SearchSortBy.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		28EE5295229E8FC0005EE95C /* SearchRepos */ = {
+			isa = PBXGroup;
+			children = (
+				286B3FB3229D2A1600AC6514 /* SearchReposController.swift */,
+			);
+			path = SearchRepos;
 			sourceTree = "<group>";
 		};
 		702A6819BB94CAF6690E5577 /* Frameworks */ = {
@@ -526,7 +534,7 @@
 				286B3FBA229D2A1600AC6514 /* GHCollection.xcdatamodeld in Sources */,
 				28A6E0B1229D831D0033938B /* GithubSearchProviding.swift in Sources */,
 				28EE528D229E6ADF005EE95C /* GithubAPIFactory.swift in Sources */,
-				286B3FB4229D2A1600AC6514 /* ViewController.swift in Sources */,
+				286B3FB4229D2A1600AC6514 /* SearchReposController.swift in Sources */,
 				28A6E0A8229D6D810033938B /* RepositoryRepresenting.swift in Sources */,
 				28A6E0A4229D6A460033938B /* RepoOwnerRepresenting.swift in Sources */,
 				28EE5292229E72B5005EE95C /* SearchSortBy.swift in Sources */,
