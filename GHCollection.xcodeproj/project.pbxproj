@@ -144,9 +144,9 @@
 		286B3FC8229D2A1700AC6514 /* GHCollectionTests */ = {
 			isa = PBXGroup;
 			children = (
-				286B3FC9229D2A1700AC6514 /* GHCollectionTests.swift */,
 				286B3FCB229D2A1700AC6514 /* Info.plist */,
 				28A6E0AD229D78EB0033938B /* CodingTest.swift */,
+				286B3FC9229D2A1700AC6514 /* GHCollectionTests.swift */,
 			);
 			path = GHCollectionTests;
 			sourceTree = "<group>";
