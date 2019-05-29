@@ -20,4 +20,8 @@ final class SearchCollectionDelegate: NSObject, UICollectionViewDelegate {
             reloader?.didScrollToEnd()
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        detailsPresenting?.showDetailsFor(indexPath: indexPath)
+    }
 }

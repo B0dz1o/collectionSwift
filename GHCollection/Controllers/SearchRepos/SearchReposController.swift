@@ -84,10 +84,6 @@ final class SearchReposController: UIViewController {
             #endif
         }
     }
-
-    enum LoadingError: String, Error {
-        case noCurrentRequest
-    }
 }
 
 extension SearchReposController: CollectionViewReloading {
@@ -106,11 +102,11 @@ extension SearchReposController: CollectionViewReloading {
 
 extension SearchReposController: DetailsPresenting {
     func showDetailsFor(indexPath: IndexPath) {
-        guard let data = dataSource.dataFor(indexPath: indexPath) else {
+        guard let repository = dataSource.dataFor(indexPath: indexPath) else {
             return
         }
-        //TODO present data
+        let detailsController = RepoDetailsController(with: repository)
+        self.navigationController?.pushViewController(detailsController, animated: true)
     }
-
 
 }
