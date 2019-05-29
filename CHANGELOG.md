@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
+## [1.0.0] - 2019-05-29
+### Added
+- Dependencies: Alamofire, PromiseKit, SnapKit, Kingfisher
+- Linter - SwiftLint
+- JSON [de/en]coding unit tests
+- Networking - searching through Github API
+- Search view - controllers and subviews
+- Image caching thanks to Kingfisher
+### Removed
+- Default storyboard
+### Fixed
+- Code style
+
 ## [0.0.1] - 2019-05-28
 ### Added
 - Basic project form
@@ -20,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bundler to keep track of ruby tools versions
 - This changelog
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.1...develop
+[Unreleased]: https://github.com/b0dz1o/collectionSwift/compare/v1.0.0...develop
+[1.0.0]: https://github.com/b0dz1o/collectionSwift/compare/v0.0.1...develop
 [0.0.1]: https://github.com/b0dz1o/collectionSwift/releases/tag/v0.0.1
 
