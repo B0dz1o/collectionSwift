@@ -18,11 +18,14 @@ extension SearchReposDataSource: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO match with API
-        return 500
+        return 15
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.searchCellIdentifier, for: indexPath)
+        if let searchCell = cell as? SearchRepoCell {
+            searchCell.configure(with: MockRepository())
+        }
         return cell
     }
 }
