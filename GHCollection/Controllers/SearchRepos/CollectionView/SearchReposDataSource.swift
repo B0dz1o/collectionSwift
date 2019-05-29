@@ -8,34 +8,40 @@
 
 import UIKit
 import PromiseKit
+import Kingfisher
 
 class SearchReposDataSource: NSObject {
 
     let searchCellIdentifier = "\(SearchRepoCell.self)"
     let pageSize: UInt = 40
 
-    let mockQuery: String
+    var endReached = false
     var repositories: [RepositoryRepresenting] = []
 
-    override init() {
-        let queries = ["python", "nodejs", "rails", "react"]
-        let index = Int(arc4random()) % queries.count
-        mockQuery = queries[index]
-        super.init()
-    }
-
-    func getData() -> Promise<Int> {
+    func getData(forQuery query: String, refresh: Bool) -> Promise<Int> {
+        if refresh {
+            self.refreshResults()
+        }
+        guard !endReached else {
+            return Promise.value(0)
+        }
         /// pages are 1-based on Github. See https://developer.github.com/v3/#pagination
         let page = UInt(floor(Double(repositories.count) / Double(pageSize))) + 1
         let promise = firstly {
-            GithubSearchProxy().getResults(query: mockQuery, page: page, perPage: pageSize)
+            GithubSearchProxy().getResults(query: query, page: page, perPage: pageSize)
         }
         .then { (result) -> Promise<Int> in
             let items = result.items
             self.repositories.append(contentsOf: items)
+            self.endReached = (items.count == 0)
             return Promise.value(items.count)
         }
         return promise
+    }
+
+    private func refreshResults() {
+        self.repositories = []
+        self.endReached = false
     }
 
 }

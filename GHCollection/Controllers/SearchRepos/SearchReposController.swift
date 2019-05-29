@@ -9,18 +9,22 @@
 import UIKit
 import PromiseKit
 
-final class SearchReposController: UIViewController {
+final class SearchReposController: UIViewController, CollectionViewReloading {
 
     let dataSource = SearchReposDataSource()
     let flowLayout = SearchReposFlowLayout()
+    let collectionDelegate = SearchCollectionDelegate()
     let searchView = SearchReposView()
+    let searchBar = RepoSearchBar()
+    let searchBarDelegate = SearchBarDelegate()
+
+    var lastQuery: String?
     var collectionView: UICollectionView {
         return searchView.collectionView
     }
-    var dataGetter: Promise<Int>
+    var dataGetter: Promise<Int>?
 
     init() {
-        dataGetter = dataSource.getData()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -28,22 +32,6 @@ final class SearchReposController: UIViewController {
         super.viewDidLoad()
         setupSubviews()
         setupCollectionView()
-        firstly {
-            dataGetter
-        }
-        .done { (count) in
-            guard count > 0 else {
-                return
-            }
-            DispatchQueue.main.async { [weak self] in
-                self?.collectionView.reloadData()
-            }
-        }
-        .catch { (error) in
-            #if DEBUG
-                print(error)
-            #endif
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -51,33 +39,34 @@ final class SearchReposController: UIViewController {
     }
 
     private func setupSubviews() {
+        self.view.addSubview(searchBar)
         self.view.addSubview(searchView)
+        searchView.position(below: searchBar)
+        searchBar.delegate = searchBarDelegate
+        searchBarDelegate.reloader = self
     }
 
     private func setupCollectionView() {
         collectionView.register(SearchRepoCell.self, forCellWithReuseIdentifier: "\(SearchRepoCell.self)")
         collectionView.dataSource = dataSource
         collectionView.prefetchDataSource = dataSource
-        collectionView.delegate = self
+        collectionView.delegate = collectionDelegate
+        collectionDelegate.reloader = self
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
         flowLayout.setSizeFor(superview: self.view)
     }
 
-}
-
-extension SearchReposController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (indexPath.row + 1) == collectionView.numberOfItems(inSection: indexPath.section) {
-            downloadMore()
+    private func downloadData(refresh: Bool) {
+        guard let query = lastQuery else {
+            return
         }
-    }
-
-    private func downloadMore() {
-        guard !self.dataGetter.isPending else {
+        let isPending = self.dataGetter?.isPending ?? false
+        guard !isPending else {
             return
         }
         firstly { () -> Promise<Int> in
-            dataGetter = dataSource.getData()
+            let dataGetter = dataSource.getData(forQuery: query, refresh: refresh)
+            self.dataGetter = dataGetter
             return dataGetter
         }
         .done { (count) in
@@ -93,5 +82,23 @@ extension SearchReposController: UICollectionViewDelegate {
             print(error)
             #endif
         }
+    }
+
+    enum LoadingError: String, Error {
+        case noCurrentRequest
+    }
+}
+
+extension SearchReposController {
+    func search(queryChanged query: String) {
+        if let lastQuery = self.lastQuery, lastQuery == query {
+            return
+        }
+        self.lastQuery = query
+        downloadData(refresh: true)
+    }
+
+    func didScrollToEnd() {
+        downloadData(refresh: false)
     }
 }
