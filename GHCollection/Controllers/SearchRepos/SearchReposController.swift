@@ -12,6 +12,7 @@ final class SearchReposController: UIViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
+        self.view = SearchReposView()
     }
 
     required init?(coder aDecoder: NSCoder) {
