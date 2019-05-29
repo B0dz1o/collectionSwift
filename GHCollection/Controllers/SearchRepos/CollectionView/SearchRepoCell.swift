@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class SearchRepoCell: UICollectionViewCell {
 
@@ -29,11 +30,13 @@ class SearchRepoCell: UICollectionViewCell {
         super.prepareForReuse()
         setConstraints()
         avatar.image = nil
+        avatar.kf.cancelDownloadTask()
     }
 
     func configure(with repository: RepositoryRepresenting) {
-        //TODO replace placeholder with Kingfisher cache
-        self.avatar.image = UIImage(named: "AvatarPlaceholder")
+        if let url = URL(string: repository.owner.avatarAddress) {
+            self.avatar.kf.setImage(with: url)
+        }
         self.lblTitle.text = repository.name
         self.lblOwner.text = repository.owner.login
     }
