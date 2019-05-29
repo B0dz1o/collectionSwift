@@ -1,3 +1,44 @@
-PODFILE CHECKSUM: 83dcd3b28ce5a7f960dff0fcf29a6614b7607933
+PODS:
+  - Alamofire (4.8.2)
+  - Kingfisher (5.5.0)
+  - PromiseKit (6.8.4):
+    - PromiseKit/CorePromise (= 6.8.4)
+    - PromiseKit/Foundation (= 6.8.4)
+    - PromiseKit/UIKit (= 6.8.4)
+  - PromiseKit/Alamofire (6.8.4):
+    - Alamofire (~> 4.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (6.8.4)
+  - PromiseKit/Foundation (6.8.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.4):
+    - PromiseKit/CorePromise
+  - SnapKit (5.0.0)
+  - SwiftLint (0.32.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8.0)
+  - Kingfisher
+  - PromiseKit (~> 6.0)
+  - PromiseKit/Alamofire
+  - SnapKit (~> 5.0)
+  - SwiftLint (~> 0.31)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Kingfisher
+    - PromiseKit
+    - SnapKit
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
+  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
+
+PODFILE CHECKSUM: 79ecd7857d9a8aa1afc09fbee379e45f61e933b6
 
 COCOAPODS: 1.7.0
