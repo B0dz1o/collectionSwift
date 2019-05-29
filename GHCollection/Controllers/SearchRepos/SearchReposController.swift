@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 final class SearchReposController: UIViewController {
 
@@ -16,8 +17,10 @@ final class SearchReposController: UIViewController {
     var collectionView: UICollectionView {
         return searchView.collectionView
     }
+    var dataGetter: Promise<Int>
 
     init() {
+        dataGetter = dataSource.getData()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,6 +28,22 @@ final class SearchReposController: UIViewController {
         super.viewDidLoad()
         setupSubviews()
         setupCollectionView()
+        firstly {
+            dataGetter
+        }
+        .done { (count) in
+            guard count > 0 else {
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+        .catch { (error) in
+            #if DEBUG
+                print(error)
+            #endif
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
