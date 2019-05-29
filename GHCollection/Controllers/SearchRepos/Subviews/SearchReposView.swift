@@ -37,6 +37,14 @@ class SearchReposView: UIView {
     }
 
     override func didMoveToSuperview() {
-        self.snp.makeConstraints { $0.edges.equalToSuperview() }
+        self.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+
+    func position(below view: UIView) {
+        self.snp.remakeConstraints { (maker) in
+            maker.top.equalTo(view.snp.bottom)
+        }
     }
 }

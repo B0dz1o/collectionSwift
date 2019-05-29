@@ -14,6 +14,7 @@ final class SearchReposController: UIViewController {
     let dataSource = SearchReposDataSource()
     let flowLayout = SearchReposFlowLayout()
     let searchView = SearchReposView()
+    let searchBar = RepoSearchBar()
     var collectionView: UICollectionView {
         return searchView.collectionView
     }
@@ -51,7 +52,9 @@ final class SearchReposController: UIViewController {
     }
 
     private func setupSubviews() {
+        self.view.addSubview(searchBar)
         self.view.addSubview(searchView)
+        searchView.position(below: searchBar)
     }
 
     private func setupCollectionView() {
