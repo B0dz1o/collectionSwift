@@ -39,6 +39,14 @@ class SearchReposDataSource: NSObject {
         return promise
     }
 
+    func dataFor(indexPath: IndexPath) -> RepositoryRepresenting? {
+        let row = indexPath.row
+        guard row < repositories.count else {
+            return nil
+        }
+        return repositories[row]
+    }
+
     private func refreshResults() {
         self.repositories = []
         self.endReached = false
