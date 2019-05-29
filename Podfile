@@ -7,6 +7,7 @@ target 'GHCollection' do
   pod 'PromiseKit', '~> 6.0'
   pod 'PromiseKit/Alamofire'
   pod 'SnapKit', '~> 5.0'
+  pod 'Kingfisher'
 
   # Pods for GHCollection
   target 'GHCollectionTests' do
