@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Networking - searching through Github API
 - Search view - controllers and subviews
 - Image caching thanks to Kingfisher
+- Another view to show detailed information on given repository
+### Changed
+- navigation within app to UINavigationController subclass
 ### Removed
 - Default storyboard
 ### Fixed
