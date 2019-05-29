@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SearchCollectionDelegate: NSObject, UICollectionViewDelegate {
+final class SearchCollectionDelegate: NSObject, UICollectionViewDelegate {
 
     weak var reloader: CollectionViewReloading?
+    weak var detailsPresenting: DetailsPresenting?
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let offsetRow = indexPath.row + 1
@@ -18,5 +19,9 @@ class SearchCollectionDelegate: NSObject, UICollectionViewDelegate {
         if offsetRow == count {
             reloader?.didScrollToEnd()
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        detailsPresenting?.showDetailsFor(indexPath: indexPath)
     }
 }

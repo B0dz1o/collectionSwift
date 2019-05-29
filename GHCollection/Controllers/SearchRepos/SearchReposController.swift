@@ -9,14 +9,14 @@
 import UIKit
 import PromiseKit
 
-final class SearchReposController: UIViewController, CollectionViewReloading {
+final class SearchReposController: UIViewController {
 
     let dataSource = SearchReposDataSource()
     let flowLayout = SearchReposFlowLayout()
-    let collectionDelegate = SearchCollectionDelegate()
+    let collectionDelegateRef = SearchCollectionDelegate()
     let searchView = SearchReposView()
     let searchBar = RepoSearchBar()
-    let searchBarDelegate = SearchBarDelegate()
+    let searchBarDelegateRef = SearchBarDelegate()
 
     var lastQuery: String?
     var collectionView: UICollectionView {
@@ -42,16 +42,17 @@ final class SearchReposController: UIViewController, CollectionViewReloading {
         self.view.addSubview(searchBar)
         self.view.addSubview(searchView)
         searchView.position(below: searchBar)
-        searchBar.delegate = searchBarDelegate
-        searchBarDelegate.reloader = self
+        searchBar.delegate = searchBarDelegateRef
+        searchBarDelegateRef.reloader = self
     }
 
     private func setupCollectionView() {
         collectionView.register(SearchRepoCell.self, forCellWithReuseIdentifier: "\(SearchRepoCell.self)")
         collectionView.dataSource = dataSource
         collectionView.prefetchDataSource = dataSource
-        collectionView.delegate = collectionDelegate
-        collectionDelegate.reloader = self
+        collectionView.delegate = collectionDelegateRef
+        collectionDelegateRef.reloader = self
+        collectionDelegateRef.detailsPresenting = self
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
         flowLayout.setSizeFor(superview: self.view)
     }
@@ -83,13 +84,9 @@ final class SearchReposController: UIViewController, CollectionViewReloading {
             #endif
         }
     }
-
-    enum LoadingError: String, Error {
-        case noCurrentRequest
-    }
 }
 
-extension SearchReposController {
+extension SearchReposController: CollectionViewReloading {
     func search(queryChanged query: String) {
         if let lastQuery = self.lastQuery, lastQuery == query {
             return
@@ -101,4 +98,15 @@ extension SearchReposController {
     func didScrollToEnd() {
         downloadData(refresh: false)
     }
+}
+
+extension SearchReposController: DetailsPresenting {
+    func showDetailsFor(indexPath: IndexPath) {
+        guard let repository = dataSource.dataFor(indexPath: indexPath) else {
+            return
+        }
+        let detailsController = RepoDetailsController(with: repository)
+        self.navigationController?.pushViewController(detailsController, animated: true)
+    }
+
 }

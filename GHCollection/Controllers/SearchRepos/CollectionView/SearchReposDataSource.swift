@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 import Kingfisher
 
-class SearchReposDataSource: NSObject {
+final class SearchReposDataSource: NSObject {
 
     let searchCellIdentifier = "\(SearchRepoCell.self)"
     let pageSize: UInt = 40
@@ -37,6 +37,14 @@ class SearchReposDataSource: NSObject {
             return Promise.value(items.count)
         }
         return promise
+    }
+
+    func dataFor(indexPath: IndexPath) -> RepositoryRepresenting? {
+        let row = indexPath.row
+        guard row < repositories.count else {
+            return nil
+        }
+        return repositories[row]
     }
 
     private func refreshResults() {

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class SearchReposView: UIView {
+final class SearchReposView: UIView {
 
     let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: UICollectionViewLayout())
 

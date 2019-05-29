@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func prepareWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.backgroundColor = .white
-        window.rootViewController = SearchReposController()
+        window.rootViewController = SearchNavigationController()
         window.makeKeyAndVisible()
         self.window = window
     }

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class SearchRepoCell: UICollectionViewCell {
+final class SearchRepoCell: UICollectionViewCell {
 
     let avatar = UIImageView()
     let lblTitle = UILabel()
