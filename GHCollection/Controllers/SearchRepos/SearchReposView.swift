@@ -15,13 +15,28 @@ class SearchReposView: UIView {
 
     init() {
         super.init(frame: .zero)
+        self.translatesAutoresizingMaskIntoConstraints = true
+        self.configureColors()
+        self.configureConstraints()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func configureConstraints() {
         self.addSubview(collectionView)
         collectionView.snp.makeConstraints { (maker) in
             maker.edges.equalToSuperview()
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func configureColors() {
+        self.backgroundColor = .white
+        collectionView.backgroundColor = .clear
+    }
+
+    override func didMoveToSuperview() {
+        self.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 }
