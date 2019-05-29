@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchBarDelegate: NSObject, UISearchBarDelegate {
+final class SearchBarDelegate: NSObject, UISearchBarDelegate {
 
     weak var reloader: CollectionViewReloading?
 

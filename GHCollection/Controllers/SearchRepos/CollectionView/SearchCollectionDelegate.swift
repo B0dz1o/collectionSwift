@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchCollectionDelegate: NSObject, UICollectionViewDelegate {
+final class SearchCollectionDelegate: NSObject, UICollectionViewDelegate {
 
     weak var reloader: CollectionViewReloading?
     weak var detailsPresenting: DetailsPresenting?

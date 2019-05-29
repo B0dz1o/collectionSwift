@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 import Kingfisher
 
-class SearchReposDataSource: NSObject {
+final class SearchReposDataSource: NSObject {
 
     let searchCellIdentifier = "\(SearchRepoCell.self)"
     let pageSize: UInt = 40

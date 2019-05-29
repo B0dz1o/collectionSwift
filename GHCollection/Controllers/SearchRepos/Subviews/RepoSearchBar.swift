@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class RepoSearchBar: UISearchBar {
+final class RepoSearchBar: UISearchBar {
 
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
