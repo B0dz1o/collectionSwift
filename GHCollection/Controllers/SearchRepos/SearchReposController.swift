@@ -57,9 +57,41 @@ final class SearchReposController: UIViewController {
     private func setupCollectionView() {
         collectionView.register(SearchRepoCell.self, forCellWithReuseIdentifier: "\(SearchRepoCell.self)")
         collectionView.dataSource = dataSource
-        collectionView.setCollectionViewLayout(flowLayout, animated: true)
         collectionView.prefetchDataSource = dataSource
+        collectionView.delegate = self
+        collectionView.setCollectionViewLayout(flowLayout, animated: true)
         flowLayout.setSizeFor(superview: self.view)
     }
 
+}
+
+extension SearchReposController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.row + 1) == collectionView.numberOfItems(inSection: indexPath.section) {
+            downloadMore()
+        }
+    }
+
+    private func downloadMore() {
+        guard !self.dataGetter.isPending else {
+            return
+        }
+        firstly { () -> Promise<Int> in
+            dataGetter = dataSource.getData()
+            return dataGetter
+        }
+        .done { (count) in
+            guard count > 0 else {
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+        .catch { (error) in
+            #if DEBUG
+            print(error)
+            #endif
+        }
+    }
 }

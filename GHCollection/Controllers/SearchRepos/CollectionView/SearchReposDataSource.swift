@@ -27,7 +27,10 @@ class SearchReposDataSource: NSObject {
     func getData() -> Promise<Int> {
         /// pages are 1-based on Github. See https://developer.github.com/v3/#pagination
         let page = UInt(floor(Double(repositories.count) / Double(pageSize))) + 1
-        let promise = GithubSearchProxy().getResults(query: mockQuery, page: page, perPage: pageSize).then { (result) -> Promise<Int> in
+        let promise = firstly {
+            GithubSearchProxy().getResults(query: mockQuery, page: page, perPage: pageSize)
+        }
+        .then { (result) -> Promise<Int> in
             let items = result.items
             self.repositories.append(contentsOf: items)
             return Promise.value(items.count)
